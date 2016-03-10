@@ -4,7 +4,6 @@
     "railsbeginner <bartosz.dyja@gmail.com>"
   ],
   "description": "Frontend for Rails API",
-  "main": "app/index.html",
   "moduleType": [
     "globals"
   ],
