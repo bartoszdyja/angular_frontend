@@ -22,6 +22,110 @@
     </div>
 </section>
 
+<section class='slice' id="about_us">
+    <div class="container relative">
+
+                      <div class="row">
+                        <h3 class="section-title p-15"><span>O nas</span></h3>
+                          <div class="col-md-6">
+                                  <p>Bruder&Dyja to firma doradcza w zakresie finansów, która specjalizuje się w optymalnym dopasowaniu produktów finansowych do Państwa potrzeb. Podstawą działalności firmy jest doradztwo w obszarze instrumentów hipotecznych, takich jak kredyty i pożyczki hipoteczne oraz kredyty konsolidacyjne.
+                                  <br>
+                                  Od początku działalności, która skupiała sie na doradztwie w zakresie finansowania nieruchomości, spotkaliśmy się z już z tysiącami klientów. Dzięki naszej pomocy bezstresowo przeszli Oni proces wyboru kredytu hipotecznego, procesowania wniosku, aby na końcu cieszyć się własnym domem lub mieszkaniem. W Bruder&Dyja Sp. j. zdajemy sobie sprawę z tego, że decyzja o zaciągnięciu kredytu hipotecznego stanowi dla klientów duże przedsięwzięcie i wiąże się z wieloma emocjami. Właśnie dlatego staramy się być dla klientów przewodnikami po zawiłym świecie finansów.
+                                  </p>
+                          </div>
+                          <div class="col-md-6">
+                                <p>Nasza filozofia przynosi efekty dzięki Państwa zaufaniu. Od początku postawiliśmy na całkowitą przejrzystość i uczciwość w relacjach z naszymi klientami. Firmujemy naszą pracę własnymi nazwiskami właśnie po to, abyście mogli Państwo połączyć naszą wiedzę i doświadczenie z waszymi planami.
+                                </p>
+                                <p>Podstawą naszej firmy są polecenia, ponad 90% naszych projektów pochodzi od osób, które mieliśmy przyjemność obsługiwać. Pozwala nam omijać wszelakie sprzedażowe zagrywki oraz oferować najkorzystniejsze finansowo oferty. To był nasz cel i jesteśmy dumni, że w ten sposób okazujecie nam Państwo, że nasze zaangażowanie ma sens.</p>
+                          </div>
+                      </div>
+                  </div>
+</section>
+
+<section class="slice p-15 base">
+    <div class="cta-wr">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h1 class="text-normal">
+                        <strong>Bruder & Dyja</strong> Kredyty hipoteczne
+                    </h1>
+                </div>
+                <div class="col-md-4">
+                    <a href="#" class="btn btn-lg btn-b-white btn-icon btn-icon-right btn-check pull-right">
+                        <span>Kontakt</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="slice animate-hover-slide bg-white">
+    <div class="wp-section">
+        <div class="container">
+            <div class="section-title-wr">
+                <h3 class="section-title left"><span>Artykuły</span></h3>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="wp-block article grid">
+                        <div class="article-image">
+                            <img src="images/magazine-small-1.jpg" alt="">
+                            <h4 class="image-title base">Zobacz koniecznie</h4>
+                        </div>
+                        <h3 class="title">
+                            <a href="">{{articles[0].Title}}</a>
+                        </h3>
+                        <p>
+                        {{articles[0].Content  | limitTo: 190 }}{{articles[0].Content.length > 190 ? '...' : ''}}
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                  <div ng-repeat="article in articles" ng-hide="$first" ng-if="($index+1) % 2 == 0" class="row">
+                    <div class="col-md-6">
+                        <div class="wp-block article list">
+                            <div class="article-image">
+                                <img src="images/magazine-small-6.jpg" alt="">
+                            </div>
+                            <div class="wp-block-body">
+                                <h3 class="title">
+                                    <a href="" hidefocus="true">{{articles[$index].Title}}</a>
+                                </h3>
+                                <p>
+                                {{articles[$index].Content | limitTo: 60 }}{{articles[$index].Content.length > 60 ? '...' : ''}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="wp-block article list">
+                            <div class="article-image">
+                                <img src="images/magazine-small-6.jpg" alt="">
+                            </div>
+                            <div class="wp-block-body">
+                                <h3 class="title">
+                                    <a href="" hidefocus="true">{{articles[$index+1].Title}}</a>
+                                </h3>
+                                <p>
+                                L{{articles[$index+1].Content | limitTo: 60 }}{{articles[$index+1].Content.length > 60 ? '...' : ''}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script src="assets/layerslider/js/greensock.js" type="text/javascript"></script>
+<script src="assets/layerslider/js/layerslider.transitions.js" type="text/javascript"></script>
+<script src="assets/layerslider/js/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script>
+
 <script>
     jQuery("#layerslider").layerSlider({
         pauseOnHover: true,

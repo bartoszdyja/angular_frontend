@@ -1,0 +1,30 @@
+RewriteEngine on
+RewriteBase /site
+
+
+RewriteCond %{HTTP_HOST} !^www\.bdfinanse\.pl$ [NC]
+RewriteRule (.*) http://www.bdfinanse.pl/$1 [R=301,L]
+
+RewriteRule application index.php [R=301,L]
+RewriteRule ^admin/$ index.php?m=admin
+RewriteRule ^(pl|en|de)*/*rss.xml$ index.php?c=rss&lang_name=$1
+RewriteRule ^sitemap.xml$ index.php?a=sitemap
+RewriteRule ^(pl|en|de)$ index.php?lang_name=$1
+
+RewriteRule ^(pl|en|de)/(news)/([a-zA-Z0-9/\_-]+)$ index.php?c=news&name=$3&lang_name=$1
+RewriteRule ^(news)/([a-zA-Z0-9/\_-]+)$ index.php?c=news&name=$2&lang_name=pl
+
+RewriteCond %{REQUEST_URI} !fckeditor
+RewriteCond %{REQUEST_URI} !var
+RewriteCond %{REQUEST_URI} !admin
+RewriteCond %{REQUEST_URI} !install
+RewriteRule ^(pl|en|de)/([a-zA-Z0-9/\_-]+)$ index.php?a=getPage&name=$2&lang_name=$1
+
+RewriteCond %{REQUEST_URI} !fckeditor 
+RewriteCond %{REQUEST_URI} !var
+RewriteCond %{REQUEST_URI} !admin
+RewriteCond %{REQUEST_URI} !install
+RewriteRule ^([a-zA-Z0-9/\_-]+)$ index.php?a=getPage&name=$1&lang_name=pl
+
+
+
