@@ -78,7 +78,8 @@
                             <a href="">{{articles[0].Title}}</a>
                         </h3>
                         <p>
-                        {{articles[0].Content  | limitTo: 190 }}{{articles[0].Content.length > 190 ? '...' : ''}}
+                          <div ng-bind-html="articles[0].Content"></div>
+
                         </p>
                     </div>
                 </div>
@@ -86,12 +87,10 @@
                   <div ng-repeat="article in articles" ng-hide="$first" ng-if="($index+1) % 2 == 0" class="row">
                     <div class="col-md-6">
                         <div class="wp-block article list">
-                            <div class="article-image">
-                                <img src="images/magazine-small-6.jpg" alt="">
-                            </div>
                             <div class="wp-block-body">
                                 <h3 class="title">
                                     <a href="" hidefocus="true">{{articles[$index].Title}}</a>
+                                    <hr>
                                 </h3>
                                 <p>
                                 {{articles[$index].Content | limitTo: 60 }}{{articles[$index].Content.length > 60 ? '...' : ''}}
@@ -101,12 +100,10 @@
                     </div>
                     <div class="col-md-6">
                         <div class="wp-block article list">
-                            <div class="article-image">
-                                <img src="images/magazine-small-6.jpg" alt="">
-                            </div>
                             <div class="wp-block-body">
                                 <h3 class="title">
                                     <a href="" hidefocus="true">{{articles[$index+1].Title}}</a>
+                                    <hr>
                                 </h3>
                                 <p>
                                 L{{articles[$index+1].Content | limitTo: 60 }}{{articles[$index+1].Content.length > 60 ? '...' : ''}}

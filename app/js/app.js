@@ -1,4 +1,4 @@
-var frontendPage = angular.module('frontendPage',['ngRoute'])
+var frontendPage = angular.module('frontendPage',['ngRoute', 'ngSanitize'])
 
 frontendPage.config(['$routeProvider',
   function($routeProvider) {
@@ -16,6 +16,7 @@ frontendPage.config(['$routeProvider',
   }]);
 
   frontendPage.controller('FinanceCtrl', function($scope, $http) {
+    $scope.someMessage = '<b>abs</b> asdfas'
     $http.get('http://www.bdfinanse.pl/bd_site/api/testimonials.php')
          .then(function(res){
             $scope.testimonials = res.data.records;
