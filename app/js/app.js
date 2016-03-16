@@ -11,6 +11,10 @@ frontendPage.config(['$routeProvider',
         templateUrl: 'partials/article.html',
         controller: 'ArticleCtrl'
       }).
+      when('/contact', {
+        templateUrl: 'partials/contact.html',
+        controller: 'ContactCtrl'
+      }).
       otherwise({
         redirectTo: '/'
       });
@@ -36,4 +40,12 @@ frontendPage.config(['$routeProvider',
             $scope.article = res.data.articles[0];
           });
     $scope.articleId = $routeParams.articleId;
+});
+
+frontendPage.controller('ContactCtrl', function ($scope, $http) {
+    console.log('In cont');
+    $scope.submit = function(contactform) {
+      console.log('In func');
+
+    }
 });
