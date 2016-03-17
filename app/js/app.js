@@ -46,6 +46,10 @@ frontendPage.controller('ContactCtrl', function ($scope, $http) {
     console.log('In cont');
     $scope.submit = function(contactform) {
       console.log('In func');
+      if (contactform.$valid) {
+        console.log('Form valid');
+      }
 
     }
+
 });
