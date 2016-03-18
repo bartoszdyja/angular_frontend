@@ -14,10 +14,10 @@ frontendPage.config(['$routeProvider',
       when('/contact', {
         templateUrl: 'partials/contact.html',
         controller: 'ContactCtrl'
-      }).
-      otherwise({
-        redirectTo: '/'
       });
+      // otherwise({
+      //   redirectTo: '/'
+      // });
   }]);
 
 
@@ -43,11 +43,34 @@ frontendPage.config(['$routeProvider',
 });
 
 frontendPage.controller('ContactCtrl', function ($scope, $http) {
+  $scope.result = 'hidden'
+  $scope.resultMessage;
+  $scope.formData;
+  $scope.submitted = true;
+  $scope.submitButtonDisabled = false;
     console.log('In cont');
     $scope.submit = function(contactform) {
       console.log('In func');
       if (contactform.$valid) {
         console.log('Form valid');
+        $http({
+          method: 'POST',
+          url: 'contact-form.php',
+          data: $.param($scope.formData),
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+        }).success(function(data){
+          console.log(data);
+          if (data.success) { //success comes from the return json object
+            $scope.submitButtonDisabled = true;
+            $scope.resultMessage = data.message;
+            $scope.result='bg-success';
+          } else {
+            $scope.submitButtonDisabled = false;
+            $scope.resultMessage = data.message;
+            $scope.result='bg-danger';
+          }
+        });
+
       }
 
     }
