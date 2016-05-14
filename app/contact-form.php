@@ -7,9 +7,13 @@ if (isset($_POST['inputName']) && isset($_POST['inputEmail']) && isset($_POST['i
 
     //check if any of the inputs are empty
     if (empty($_POST['inputName']) || empty($_POST['inputEmail']) || empty($_POST['inputMessage'])) {
-        $data = array('success' => false, 'message' => 'Please fill out the form completely.');
+        $data = array('success' => false, 'message' => 'Please fill out all required fields.');
         echo json_encode($data);
         exit;
+    }
+	
+    if (empty($_POST['inputNumber'])){
+	$_POST['inputNumber'] = '-';
     }
 
     //create an instance of PHPMailer
@@ -26,7 +30,7 @@ if (isset($_POST['inputName']) && isset($_POST['inputEmail']) && isset($_POST['i
     $mail->Subject = 'Wiadomość ze strony www';
     //Read an HTML message body from an external file, convert referenced images to embedded,
     //convert HTML into a basic plain-text alternative body
-    $mail->msgHTML("<p>Imię: {$_POST['inputName']}</p> <p>Email: {$_POST['inputEmail']}</p> <p>Numer: {$_POST['inputNumber']}</p> <p>Wiadomość: {$_POST['inputMessage']}</p>");
+    $mail->msgHTML("<p>Imię: {$_POST['inputName']}</p> <p>Email: {$_POST['inputEmail']}</p>  <p>Wiadomość: {$_POST['inputMessage']}</p>");
     // //Replace the plain text body with one created manually
     // $mail->AltBody = $_POST['inputEmail'];
 
@@ -37,7 +41,7 @@ if (isset($_POST['inputName']) && isset($_POST['inputEmail']) && isset($_POST['i
         exit;
     }
 
-    $data = array('success' => true, 'message' => 'Thanks! We have received your message.');
+    $data = array('success' => true, 'message' => 'Dziękujemy za wiadomość.');
     echo json_encode($data);
 
 } else {

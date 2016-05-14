@@ -11,6 +11,9 @@ frontendPage.config(['$routeProvider',
         templateUrl: 'partials/article.html',
         controller: 'ArticleCtrl'
       }).
+      when('/team', {
+        templateUrl: 'partials/team.html'
+      }).
       when('/contact', {
         templateUrl: 'partials/contact.html',
         controller: 'ContactCtrl'
